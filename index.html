@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Maafin Aku Yaa 🥹</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 15% 20%, #ff9fd3, transparent 30%),
+        radial-gradient(circle at 85% 80%, #9f8cff, transparent 30%),
+        linear-gradient(
+            135deg,
+            #ffc2df,
+            #d4c5ff,
+            #b8edff
+        );
+}
+
+
+/* =========================
+   BACKGROUND BULAT
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: .5;
+    animation: moveBlur 8s infinite alternate ease-in-out;
+}
+
+.blur:nth-child(1) {
+    width: 250px;
+    height: 250px;
+    background: #ff55aa;
+    top: -80px;
+    left: -80px;
+}
+
+.blur:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: #7955ff;
+    bottom: -100px;
+    right: -80px;
+    animation-delay: 2s;
+}
+
+.blur:nth-child(3) {
+    width: 180px;
+    height: 180px;
+    background: #55ddff;
+    top: 40%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+@keyframes moveBlur {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(70px, -50px) scale(1.3);
+    }
+
+}
+
+
+/* =========================
+   EMOJI JATUH
+========================= */
+
+.falling {
+    position: fixed;
+    top: -60px;
+
+    z-index: 2;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation:
+        fall linear infinite,
+        rotateEmoji 4s linear infinite;
+}
+
+@keyframes fall {
+
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+}
+
+@keyframes rotateEmoji {
+
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+
+}
+
+
+/* =========================
+   CARD UTAMA
+========================= */
+
+.card {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 90%;
+    max-width: 450px;
+
+    min-height: 570px;
+
+    padding: 35px 25px;
+
+    border-radius: 40px;
+
+    background:
+        rgba(255,255,255,.35);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    border:
+        2px solid rgba(255,255,255,.5);
+
+    box-shadow:
+        0 15px 50px
+        rgba(80,30,100,.25),
+
+        0 0 30px
+        rgba(255,255,255,.5);
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    animation:
+        cardEnter 1s ease;
+
+}
+
+
+/* =========================
+   ANIMASI CARD MASUK
+========================= */
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+        transform:
+            scale(.5)
+            rotate(-10deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+
+/* =========================
+   HIASAN
+========================= */
+
+.decoration {
+
+    position: absolute;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation:
+        floatDecoration
+        2.5s
+        infinite
+        ease-in-out;
+
+}
+
+.d1 {
+    top: 20px;
+    left: 25px;
+}
+
+.d2 {
+    top: 35px;
+    right: 25px;
+    animation-delay: .5s;
+}
+
+.d3 {
+    bottom: 25px;
+    left: 30px;
+    animation-delay: 1s;
+}
+
+.d4 {
+    bottom: 30px;
+    right: 30px;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatDecoration {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-10deg);
+
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(10deg);
+
+    }
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+
+    width: 100%;
+
+    animation:
+        pageIn
+        .8s
+        cubic-bezier(
+            .17,
+            .67,
+            .3,
+            1.3
+        );
+
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(.5)
+            translateY(50px)
+            rotate(10deg);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0)
+            rotate(0);
+    }
+
+}
+
+
+/* =========================
+   EMOJI BESAR
+========================= */
+
+.bigEmoji {
+
+    font-size: 110px;
+
+    display: inline-block;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(0,0,0,.2)
+        );
+
+    animation:
+        bounceEmoji
+        1.5s
+        infinite;
+
+}
+
+@keyframes bounceEmoji {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            rotate(5deg);
+
+    }
+
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+h1 {
+
+    margin-top: 20px;
+
+    color:
+        #5b315f;
+
+    font-size:
+        29px;
+
+    letter-spacing:
+        1px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,255,255,.7);
+
+    animation:
+        titleGlow
+        2s
+        infinite;
+
+}
+
+@keyframes titleGlow {
+
+    0%,100% {
+
+        text-shadow:
+            0 0 5px
+            rgba(255,255,255,.5);
+
+    }
+
+    50% {
+
+        text-shadow:
+            0 0 15px
+            #ff7bc8;
+
+    }
+
+}
+
+
+.subtitle {
+
+    margin-top: 10px;
+
+    color:
+        #69486c;
+
+    font-size:
+        14px;
+
+}
+
+
+/* =========================
+   TOMBOL PESAN
+========================= */
+
+.messageBtn {
+
+    margin-top: 35px;
+
+    padding:
+        16px 40px;
+
+    border:
+        none;
+
+    border-radius:
+        50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4fa3,
+            #8c5cff
+        );
+
+    color:
+        white;
+
+    font-size:
+        17px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(160,60,180,.4);
+
+    animation:
+        buttonPulse
+        1.5s
+        infinite;
+
+    transition:
+        .3s;
+
+}
+
+.messageBtn:hover {
+
+    transform:
+        scale(1.12)
+        rotate(-2deg);
+
+}
+
+.messageBtn:active {
+
+    transform:
+        scale(.85);
+
+}
+
+@keyframes buttonPulse {
+
+    0%,100% {
+
+        box-shadow:
+            0 0 10px
+            rgba(255,80,180,.5);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 30px
+            rgba(255,80,180,.8),
+
+            0 0 50px
+            rgba(140,80,255,.5);
+
+    }
+
+}
+
+
+/* =========================
+   HALAMAN 2
+========================= */
+
+.page2Emoji {
+
+    font-size:
+        65px;
+
+    display:
+        inline-block;
+
+    animation:
+        shakeEmoji
+        1.5s
+        infinite;
+
+}
+
+@keyframes shakeEmoji {
+
+    0%,100% {
+        transform:
+            rotate(0);
+    }
+
+    20% {
+        transform:
+            rotate(-10deg);
+    }
+
+    40% {
+        transform:
+            rotate(10deg);
+    }
+
+    60% {
+        transform:
+            rotate(-7deg);
+    }
+
+    80% {
+        transform:
+            rotate(7deg);
+    }
+
+}
+
+
+/* =========================
+   PESAN
+========================= */
+
+.message {
+
+    margin-top:
+        15px;
+
+    padding:
+        20px;
+
+    border-radius:
+        25px;
+
+    text-align:
+        left;
+
+    color:
+        #49334d;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.8;
+
+    background:
+        rgba(255,255,255,.4);
+
+    box-shadow:
+        0 10px 25px
+        rgba(80,30,100,.1);
+
+    animation:
+        messageAppear
+        1s
+        ease;
+
+}
+
+@keyframes messageAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   TOMBOL UDAH BACA
+========================= */
+
+.readBtn {
+
+    margin-top:
+        25px;
+
+    padding:
+        13px 28px;
+
+    border:
+        none;
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(255,255,255,.7);
+
+    color:
+        #56395b;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(80,30,100,.15);
+
+    animation:
+        buttonFloat
+        2s
+        infinite;
+
+    transition:
+        .3s;
+
+}
+
+.readBtn:hover {
+
+    transform:
+        scale(1.1);
+
+    background:
+        white;
+
+}
+
+.readBtn:active {
+
+    transform:
+        scale(.85);
+
+}
+
+@keyframes buttonFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-6px);
+    }
+
+}
+
+
+/* =========================
+   FLASH
+========================= */
+
+.flash {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    background:
+        white;
+
+    z-index:
+        999;
+
+    pointer-events:
+        none;
+
+    animation:
+        flashEffect
+        .5s
+        ease
+        forwards;
+
+}
+
+@keyframes flashEffect {
+
+    0% {
+        opacity:
+            .9;
+    }
+
+    100% {
+        opacity:
+            0;
+    }
+
+}
+
+
+/* =========================
+   EMOJI EXPLOSION
+========================= */
+
+.pop {
+
+    position:
+        fixed;
+
+    z-index:
+        1000;
+
+    pointer-events:
+        none;
+
+    font-size:
+        30px;
+
+    animation:
+        popExplosion
+        1.2s
+        ease
+        forwards;
+
+}
+
+@keyframes popExplosion {
+
+    0% {
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+        opacity:
+            1;
+
+    }
+
+    100% {
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5);
+
+        opacity:
+            0;
+
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="background">
+
+    <div class="blur"></div>
+
+    <div class="blur"></div>
+
+    <div class="blur"></div>
+
+</div>
+
+
+<!-- EMOJI JATUH -->
+
+<div class="falling"
+     style="left:5%;animation-duration:6s;">
+     🥹
+</div>
+
+<div class="falling"
+     style="left:15%;animation-duration:8s;animation-delay:1s;">
+     💗
+</div>
+
+<div class="falling"
+     style="left:25%;animation-duration:7s;animation-delay:2s;">
+     😭
+</div>
+
+<div class="falling"
+     style="left:35%;animation-duration:9s;">
+     ✨
+</div>
+
+<div class="falling"
+     style="left:45%;animation-duration:6s;animation-delay:2s;">
+     🥺
+</div>
+
+<div class="falling"
+     style="left:55%;animation-duration:10s;">
+     💌
+</div>
+
+<div class="falling"
+     style="left:65%;animation-duration:7s;animation-delay:1s;">
+     🫠
+</div>
+
+<div class="falling"
+     style="left:75%;animation-duration:8s;">
+     💖
+</div>
+
+<div class="falling"
+     style="left:85%;animation-duration:6s;">
+     😭
+</div>
+
+<div class="falling"
+     style="left:95%;animation-duration:9s;animation-delay:2s;">
+     ✨
+</div>
+
+
+<!-- CARD -->
+
+<div class="card">
+
+
+    <!-- HIASAN -->
+
+    <div class="decoration d1">
+        ✨
+    </div>
+
+    <div class="decoration d2">
+        💗
+    </div>
+
+    <div class="decoration d3">
+        🌷
+    </div>
+
+    <div class="decoration d4">
+        ✨
+    </div>
+
+
+    <!-- =========================
+         HALAMAN 1
+    ========================= -->
+
+    <div
+        class="page"
+        id="page1"
+    >
+
+        <div class="bigEmoji">
+            🥹
+        </div>
+
+
+        <h1>
+            MAAFIN AKU YAA....
+        </h1>
+
+
+        <p class="subtitle">
+            AKU MAU MINTA MAAF 🥹
+        </p>
+
+
+        <button
+            class="messageBtn"
+            onclick="openMessage()"
+        >
+
+            PESAN ✉️
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         HALAMAN 2
+    ========================= -->
+
+    <div
+        class="page hidden"
+        id="page2"
+    >
+
+        <div class="page2Emoji">
+            🥹💗
+        </div>
+
+
+        <div class="message">
+
+            Aku mau minta maaf yaa atas apa yang udah terjadi.
+            Aku sadar mungkin ada sikap atau perkataan aku yang
+            bikin kamu kepikiran, nggak nyaman, atau bahkan bikin
+            kamu khawatir.
+
+            <br><br>
+
+            Jujur, aku sama sekali nggak bermaksud buat bikin kamu
+            ngerasa seperti itu. Aku juga sadar kalau mungkin aku
+            nggak selalu bisa menjelaskan semuanya dengan baik.
+
+            <br><br>
+
+            Jadi, kalau ada sesuatu dari aku yang bikin kamu salah
+            paham atau merasa nggak enak, aku benar-benar minta
+            maaf yaa.
+
+            <br><br>
+
+            Aku cuma berharap kamu nggak terlalu kepikiran soal itu.
+            Semoga setelah ini semuanya bisa baik-baik aja lagi.
+
+            <br><br>
+
+            Sekali lagi, maafin aku yaa 🥹🙏🏻
+
+        </div>
+
+
+        <button
+            class="readBtn"
+            onclick="sendWhatsApp()"
+        >
+
+            UDAH BACA 🫠
+
+        </button>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   BUKA PESAN
+========================= */
+
+function openMessage() {
+
+    createFlash();
+
+    createExplosion();
+
+
+    document
+        .getElementById("page1")
+        .classList
+        .add("hidden");
+
+
+    setTimeout(function() {
+
+        document
+            .getElementById("page2")
+            .classList
+            .remove("hidden");
+
+    }, 400);
+
+}
+
+
+/* =========================
+   FLASH
+========================= */
+
+function createFlash() {
+
+    const flash =
+        document.createElement("div");
+
+    flash.className =
+        "flash";
+
+    document.body
+        .appendChild(flash);
+
+
+    setTimeout(function() {
+
+        flash.remove();
+
+    }, 600);
+
+}
+
+
+/* =========================
+   EXPLOSION
+========================= */
+
+function createExplosion() {
+
+    const emojis = [
+
+        "💗",
+        "💖",
+        "🥹",
+        "✨",
+        "😭",
+        "🥺",
+        "💌",
+        "🌷",
+        "🫠",
+        "❤️"
+
+    ];
+
+
+    for (
+        let i = 0;
+        i < 35;
+        i++
+    ) {
+
+        const pop =
+            document
+            .createElement("div");
+
+
+        pop.className =
+            "pop";
+
+
+        pop.innerText =
+            emojis[
+                Math.floor(
+                    Math.random()
+                    * emojis.length
+                )
+            ];
+
+
+        pop.style.left =
+            "50%";
+
+
+        pop.style.top =
+            "50%";
+
+
+        pop.style.setProperty(
+            "--x",
+            (
+                Math.random()
+                * 600
+                - 300
+            ) + "px"
+        );
+
+
+        pop.style.setProperty(
+            "--y",
+            (
+                Math.random()
+                * 600
+                - 300
+            ) + "px"
+        );
+
+
+        document.body
+            .appendChild(pop);
+
+
+        setTimeout(function() {
+
+            pop.remove();
+
+        }, 1300);
+
+    }
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsApp() {
+
+    createFlash();
+
+    createExplosion();
+
+
+    const nomor =
+        "6285168142675";
+
+
+    const pesan =
+        "AKU UDAH BACA🥹 MAAF YAA BIKIN KAMU KHAWATIR..";
+
+
+    const whatsappURL =
+        "https://wa.me/"
+        + nomor
+        + "?text="
+        + encodeURIComponent(pesan);
+
+
+    setTimeout(function() {
+
+        window.location.href =
+            whatsappURL;
+
+    }, 500);
+
+}
+
+</script>
+
+
+</body>
+</html>
